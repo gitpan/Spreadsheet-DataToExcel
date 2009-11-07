@@ -1,5 +1,8 @@
 Revision history for Spreadsheet-DataToExcel
 
+0.0102  November 7, 2009
+        Fixed warnings that showed up for empty cells.
+
 0.0101  July 29, 2009
         First version, released on an unsuspecting world.
 

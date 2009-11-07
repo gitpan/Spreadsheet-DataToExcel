@@ -3,7 +3,7 @@ package Spreadsheet::DataToExcel;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 use Spreadsheet::WriteExcel; 
 use base 'Class::Data::Accessor';
 __PACKAGE__->mk_classaccessors qw/
@@ -62,7 +62,7 @@ sub dump {
 
             for my $idx ( 0..$#$_ ) {
                 my $length;
-                if ( $opts->{text_wrap} ) {
+                if ( $opts->{text_wrap} and defined $_->[$idx] ) {
                     my @lines = split /\n/, $_->[$idx];
                     my $max_line_length = 0;
                     for ( @lines ) {
@@ -74,7 +74,7 @@ sub dump {
                     $length = $max_line_length;
                 }
                 else {
-                    $length = length $_->[$idx];
+                    $length = defined $_->[$idx] ? length $_->[$idx] : 0;
                 }
 
                 $sizes[$idx] = $length

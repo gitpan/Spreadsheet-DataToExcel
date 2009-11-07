@@ -1,24 +1,22 @@
 ---
 name: Spreadsheet-DataToExcel
-version: 0.0101
+version: 0.0102
 author:
   - "'Zoffix <'zoffix@cpan.org'>"
 abstract: Simple method to generate Excel files from 2D arrayrefs
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
-build_requires:
-  Test::More: 0
 requires:
   Class::Data::Accessor: 0.04004
   Spreadsheet::WriteExcel: 2.25
-configure_requires:
-  Module::Build: 0.34
+build_requires:
+  Test::More: 0
 provides:
   Spreadsheet::DataToExcel:
     file: lib/Spreadsheet/DataToExcel.pm
-    version: 0.0101
-generated_by: Module::Build version 0.34
+    version: 0.0102
+generated_by: Module::Build version 0.280801
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
