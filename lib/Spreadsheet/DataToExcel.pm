@@ -3,7 +3,7 @@ package Spreadsheet::DataToExcel;
 use warnings;
 use strict;
 
-our $VERSION = '0.0102';
+our $VERSION = '0.0103';
 use Spreadsheet::WriteExcel; 
 use base 'Class::Data::Accessor';
 __PACKAGE__->mk_classaccessors qw/
@@ -189,7 +189,8 @@ object.
         or die "Error: " . $dump->error;
 
     # third example
-    $dump->dump( 'dump.xls', \@data, { text_wrap => 0 } )
+    open my $fh, '>', 'foo.xls' or die $!;
+    $dump->dump( $fh, \@data, { text_wrap => 0 } )
         or die "Error: " . $dump->error;
 
 Instructs the object to dump out our 2D arrayref into an Excel file.
@@ -210,11 +211,17 @@ Arguments are as follows:
 
     $dump->data(\@data);
     $dump->dump('dump.xls');
+    
+    # or
+    
+    open my $fh, '>', 'foo.xls' or die $!;
+    $dump->dump($fh, \@data);
 
 The first argument is a filename of the Excel file into which you
-want to dump your data. If set to C<undef>, then the filename will be
-retrieved from the C<file()> method; if that one is also C<undef>,
-then C<dump()> will error out.
+want to dump your data, or an already opened filehandle for such a file.
+If set to C<undef>, then the filename will be retrieved from the
+C<file()> method; if that one is also C<undef>, then C<dump()> will
+error out.
 
 =head3 second argument
 

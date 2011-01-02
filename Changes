@@ -1,5 +1,9 @@
 Revision history for Spreadsheet-DataToExcel
 
+0.0103  January 1, 2011
+        Fixed the docs to indicate that the "file" can also take
+        a filehandle
+
 0.0102  November 7, 2009
         Fixed warnings that showed up for empty cells.
 
