@@ -3,14 +3,14 @@ package Spreadsheet::DataToExcel;
 use warnings;
 use strict;
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 use Spreadsheet::WriteExcel; 
 use base 'Class::Data::Accessor';
-__PACKAGE__->mk_classaccessors qw/
+__PACKAGE__->mk_classaccessors( qw/
     data
     file
     error
-/;
+/ );
 
 
 sub new { bless {}, shift }
@@ -126,6 +126,8 @@ sub _set_error {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
